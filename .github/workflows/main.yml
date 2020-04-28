@@ -1,0 +1,17 @@
+name: test scheduled reruns
+
+on:
+  watch:
+  schedule:
+   - cron: '*/5 * * * *'
+
+jobs:
+  test-scheduled-reruns:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: initially fail so we can re-run
+      run: |
+        echo "will first fail because the secret doesn't exist but then create the secret and rerun where it should succeed"
+        [ -n "${{ secrets.X }}" ]
+        echo $?
