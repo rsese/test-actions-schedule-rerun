@@ -3,7 +3,7 @@ name: test scheduled reruns
 on:
   watch:
   schedule:
-   - cron: '*/5 * * * *'
+#   - cron: '*/5 * * * *'
 
 jobs:
   test-scheduled-reruns:
